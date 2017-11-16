@@ -58,3 +58,8 @@ background-size: contain;
   -o-animation: moving-images 400s ease infinite;
   animation: moving-images 400s ease infinite;
 }
+
+@font-face {
+  font-family: square;
+  src: url("../font/Square_1_1.ttf");
+}
