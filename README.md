@@ -1,5 +1,5 @@
 # Parallax Animated Background Demo
-Demo of a Cyberpunk street scene with parallax animated background.
+Demo of a dystopian sci-fi world with parallax animated backgrounds.
 
 
 ## Credit
