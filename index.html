@@ -16,6 +16,12 @@
       </ul>
     </div>
   </nav>
+
+  <div class="text-box col-sm-6 text-center" style="float: none;">
+  	<div id="demo"></div>
+	  <a href="#" class="btn btn-primary" onclick="clearTextBox();typeWriter();">CONTINUE</a>
+  </div>
+
 	<div class="foreground"></div>
 
 	<div class="midground">
@@ -23,5 +29,25 @@
 
 	<div class="background">
 	</div>
+
+	<script>
+// https://www.w3schools.com/howto/howto_js_typewriter.asp
+var i = 0;
+var txt = 'In the year 30XX, the tyrannical Techno-Overlords have infected the universal hive of human civilization with ABC (Awfully Bad Code) as part of Project Jasconius.';
+var speed = 75; /* The speed/duration of the effect in milliseconds */
+
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("demo").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+function clearTextBox() {
+	i = 0;
+	document.getElementById("demo").innerHTML = "";
+}
+typeWriter();
+</script>
 </body>
 </html>
