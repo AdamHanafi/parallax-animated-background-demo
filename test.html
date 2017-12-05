@@ -19,7 +19,7 @@
 
   <div class="text-box col-sm-6 text-center" style="float: none; margin-top: 30%;">
   	<div id="demo"></div>
-	  <a id="playButton" href="#" class="btn btn-primary" onclick="clearTextBox();typeWriter();">CONTINUE</a>
+	  <a id="playButton" href="#" class="btn btn-primary" onclick="clearTextBox();typeWriter();">START</a>
   </div>
 
 	<div class="foreground"></div>
@@ -43,24 +43,30 @@ function typeWriter() {
     document.getElementById("demo").innerHTML += txt[txtPos].charAt(i);
     i++;
     setTimeout(typeWriter, speed);
-
-    // console.log(i);
-
-    // if (i === txt.length - 1) {
-    //   document.getElementById("playButton").innerHTML = "REPLAY";
-    // }
   }
 }
+
+// Initalize button text as 'start'
+// Change text to 'next' after user presses it
+// If typeWriter reaches last message in txt array, change button text to 'replay'
 
 function clearTextBox() {
 	i = 0;
   if (txtPos < txt.length - 1) {
 	 txtPos++;
   } else {
+    document.getElementById("playButton").innerHTML = "REPLAY";
     txtPos = 0;
   }
-	document.getElementById("demo").innerHTML = "";
+  document.getElementById("demo").innerHTML = "";
+	document.getElementById("playButton").innerHTML = "NEXT";
+
+  // if (txt[txtPos] === txt.length) {
+  //   document.getElementById("playButton").innerHTML = "REPLAY";
+  // }
+
 }
+
 typeWriter();
 </script>
 </body>
