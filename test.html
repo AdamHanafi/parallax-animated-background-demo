@@ -32,43 +32,43 @@
 	</div>
 
 	<script>
-// https://www.w3schools.com/howto/howto_js_typewriter.asp
-var i = 0;
-var txtPos = 0;
-var txt = ['In the year 30XX, the Techno-Tyrants of Neo-Europe have infected human civilization with ABW (Awfully Bland Websites).', 'All hope seems lost for Neo-Earth ...', 'But a new hero has arisen as part of Project Jasconius!', 'A hero with techno-talents for the good of humanity!', 'He is ... CodeWritingCow!'];
-var speed = 75; /* The speed/duration of the effect in milliseconds */
+    var playlist = ['In the year 30XX, the Techno-Tyrants of Neo-Europe have infected human civilization with ABW (Awfully Bland Websites).', 'All hope seems lost for Neo-Earth ...', 'But a new hero has arisen as part of Project Jasconius!', 'A hero with techno-talents for the good of humanity!', 'He is ... CodeWritingCow!'];
+    var playlistPosition = 0;
+    var characterPosition = 0;
+    var speed = 75; /* Speed/duration of the effect in milliseconds */
 
-// Types out text on screen
-function typeWriter() {
-  if (i < txt[txtPos].length) {
-    document.getElementById("demo").innerHTML += txt[txtPos].charAt(i);
-    i++;
-    setTimeout(typeWriter, speed);
-  }
-}
+    // Types text on screen
+    function typeWriter() {
+      console.log(`playlistPosition is at ${playlistPosition}`);
+      if (characterPosition < playlist[playlistPosition].length) {
+        document.getElementById("demo").innerHTML += playlist[playlistPosition].charAt(characterPosition);
+        characterPosition++;
+        setTimeout(typeWriter, speed);
+      }
 
-// Initalize button text as 'start'
-// Change text to 'next' after user presses it
-// If typeWriter reaches last message in txt array, change button text to 'replay'
+      if (characterPosition === playlist[playlistPosition].length) {
+        playlistPosition++;
+        console.log(`playlistPosition is at ${playlistPosition}`);
+      }
+    }
 
-function clearTextBox() {
-	i = 0;
-  if (txtPos < txt.length - 1) {
-	 txtPos++;
-  } else {
-    document.getElementById("playButton").innerHTML = "REPLAY";
-    txtPos = 0;
-  }
-  document.getElementById("demo").innerHTML = "";
-	document.getElementById("playButton").innerHTML = "NEXT";
+    // Change text to 'next' after user presses button
+    // If typeWriter reaches last message in txt playlist, change button text to 'replay'
 
-  // if (txt[txtPos] === txt.length) {
-  //   document.getElementById("playButton").innerHTML = "REPLAY";
-  // }
+    function clearTextBox() {
+      document.getElementById("demo").innerHTML = "";      
+    	characterPosition = 0;
+      if (playlistPosition < playlist.length - 1) {
+       document.getElementById("playButton").innerHTML = "NEXT";
+       playlistPosition++;
+      } else {
+        document.getElementById("playButton").innerHTML = "REPLAY";
+        playlistPosition = 0;
+      }
+      console.log(`playlistPosition is at ${playlistPosition}`);
+    }
 
-}
-
-typeWriter();
+    // typeWriter();
 </script>
 </body>
 </html>
