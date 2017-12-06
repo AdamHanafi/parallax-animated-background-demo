@@ -73,8 +73,10 @@
       document.getElementById('demo').innerHTML = playlist[playlistPosition];
       if (playlistPosition < playlist.length - 1) {
         playlistPosition++;
+        document.getElementById('playButton').innerHTML = 'NEXT';
       } else {
         playlistPosition = 0;
+        document.getElementById('playButton').innerHTML = 'REPLAY';
       }
     }
 
