@@ -20,8 +20,8 @@
 
   <div class="text-box col-sm-6 text-center" style="float: none; margin-top: 30%;">
     <div id="demo"></div>
-    <!-- <a id="playButton" href="#" class="btn btn-primary" onclick="clearTextBox();typeWriter();">START</a> -->
-    <a id="playButton" href="#" class="btn btn-primary" onclick="playNextMessage();">START</a>
+    <!-- <a id="playButton" href="#" class="btn btn-primary" onclick="typeWriter();">START</a> -->
+    <a id="playButton" href="#" style="margin-top: 20px;" class="btn btn-primary btn-lg" onclick="playNextMessage();">START</a>
   </div>
 
   <div class="foreground"></div>
@@ -33,7 +33,7 @@
   </div>
 
   <script>
-    var playlist = ['In the year 30XX, the Techno-Tyrants of Neo-Europe have infected human civilization with ABW (Awfully Bland Websites).', 'All hope seems lost for Neo-Earth ...', 'But a new hero has arisen as part of Project Jasconius!', 'A hero with techno-talents for the good of humanity!', 'He is ... CodeWritingCow!'];
+    var playlist = ['In the year 30XX, the Techno-Tyrants of Neo-Europe have infected human civilization with ABW (Awfully Bland Websites).', 'All hope seems lost for the colonies of Neo-Earth ...', 'But a new hero has arisen as part of Project Jasconius!', 'A coder with techno-talents for the good of humanity!', 'He is ... CodeWritingCow!'];
     var playlistPosition = 0;
     var characterPosition = 0;
     var speed = 75; /* Speed/duration of the effect in milliseconds */
@@ -53,22 +53,6 @@
     //   }
     // }
 
-    // Change text to 'next' after user presses button
-    // If typeWriter reaches last message in txt playlist, change button text to 'replay'
-
-    // function clearTextBox() {
-    //   document.getElementById("demo").innerHTML = "";      
-    //  characterPosition = 0;
-    //   if (playlistPosition < playlist.length - 1) {
-    //    document.getElementById("playButton").innerHTML = "NEXT";
-    //    playlistPosition++;
-    //   } else {
-    //     document.getElementById("playButton").innerHTML = "REPLAY";
-    //     playlistPosition = 0;
-    //   }
-    //   console.log(`playlistPosition is at ${playlistPosition}`);
-    // }
-
     function playNextMessage() {
       document.getElementById('demo').innerHTML = playlist[playlistPosition];
       if (playlistPosition < playlist.length - 1) {
@@ -79,8 +63,6 @@
         document.getElementById('playButton').innerHTML = 'REPLAY';
       }
     }
-
-    // typeWriter();
 </script>
 </body>
 </html>
