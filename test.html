@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Cyberpunk Street Parallax</title>
+  <title>Cyberpunk Street Parallax</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 
 <body>
@@ -19,53 +19,63 @@
   </nav>
 
   <div class="text-box col-sm-6 text-center" style="float: none; margin-top: 30%;">
-  	<div id="demo"></div>
-	  <a id="playButton" href="#" class="btn btn-primary" onclick="clearTextBox();typeWriter();">START</a>
+    <div id="demo"></div>
+    <!-- <a id="playButton" href="#" class="btn btn-primary" onclick="clearTextBox();typeWriter();">START</a> -->
+    <a id="playButton" href="#" class="btn btn-primary" onclick="playNextMessage();">START</a>
   </div>
 
-	<div class="foreground"></div>
+  <div class="foreground"></div>
 
-	<div class="midground">
-	</div>
+  <div class="midground">
+  </div>
 
-	<div class="background">
-	</div>
+  <div class="background">
+  </div>
 
-	<script>
+  <script>
     var playlist = ['In the year 30XX, the Techno-Tyrants of Neo-Europe have infected human civilization with ABW (Awfully Bland Websites).', 'All hope seems lost for Neo-Earth ...', 'But a new hero has arisen as part of Project Jasconius!', 'A hero with techno-talents for the good of humanity!', 'He is ... CodeWritingCow!'];
     var playlistPosition = 0;
     var characterPosition = 0;
     var speed = 75; /* Speed/duration of the effect in milliseconds */
 
     // Types text on screen
-    function typeWriter() {
-      console.log(`playlistPosition is at ${playlistPosition}`);
-      if (characterPosition < playlist[playlistPosition].length) {
-        document.getElementById("demo").innerHTML += playlist[playlistPosition].charAt(characterPosition);
-        characterPosition++;
-        setTimeout(typeWriter, speed);
-      }
+    // function typeWriter() {
+    //   console.log(`playlistPosition is at ${playlistPosition}`);
+    //   if (characterPosition < playlist[playlistPosition].length) {
+    //     document.getElementById("demo").innerHTML += playlist[playlistPosition].charAt(characterPosition);
+    //     characterPosition++;
+    //     setTimeout(typeWriter, speed);
+    //   }
 
-      if (characterPosition === playlist[playlistPosition].length) {
-        playlistPosition++;
-        console.log(`playlistPosition is at ${playlistPosition}`);
-      }
-    }
+    //   if (characterPosition === playlist[playlistPosition].length) {
+    //     playlistPosition++;
+    //     console.log(`playlistPosition is at ${playlistPosition}`);
+    //   }
+    // }
 
     // Change text to 'next' after user presses button
     // If typeWriter reaches last message in txt playlist, change button text to 'replay'
 
-    function clearTextBox() {
-      document.getElementById("demo").innerHTML = "";      
-    	characterPosition = 0;
+    // function clearTextBox() {
+    //   document.getElementById("demo").innerHTML = "";      
+    //  characterPosition = 0;
+    //   if (playlistPosition < playlist.length - 1) {
+    //    document.getElementById("playButton").innerHTML = "NEXT";
+    //    playlistPosition++;
+    //   } else {
+    //     document.getElementById("playButton").innerHTML = "REPLAY";
+    //     playlistPosition = 0;
+    //   }
+    //   console.log(`playlistPosition is at ${playlistPosition}`);
+    // }
+
+    function playNextMessage() {
+      document.getElementById('demo').innerHTML = playlist[playlistPosition];
       if (playlistPosition < playlist.length - 1) {
-       document.getElementById("playButton").innerHTML = "NEXT";
-       playlistPosition++;
+        playlistPosition++;
       } else {
-        document.getElementById("playButton").innerHTML = "REPLAY";
         playlistPosition = 0;
       }
-      console.log(`playlistPosition is at ${playlistPosition}`);
     }
 
     // typeWriter();
